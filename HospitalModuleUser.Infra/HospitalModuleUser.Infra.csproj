@@ -21,4 +21,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HospitalModuleUser.Domain\HospitalModuleUser.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
