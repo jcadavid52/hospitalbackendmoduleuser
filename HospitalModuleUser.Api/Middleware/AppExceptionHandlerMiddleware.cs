@@ -1,11 +1,11 @@
-﻿using HospitalModuleUser.Domain.;
-using AppHospitalPractice.Domain.Exceptions.UserExceptions;
+﻿using HospitalModuleUser.Domain.Exceptions;
+using HospitalModuleUser.Domain.Exceptions.UserExceptions;
 using Azure.Core;
 using System.Net;
 
 
 
-namespace AppHostpitalPractice.Api.Middleware
+namespace HospitalModuleUser.Api.Middleware
 {
     public class AppExceptionHandlerMiddleware
     {
