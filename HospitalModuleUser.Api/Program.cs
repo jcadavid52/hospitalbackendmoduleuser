@@ -4,6 +4,7 @@ using HospitalModuleUser.Infra.DataSource;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SharpGrip.FluentValidation.AutoValidation.Mvc.Extensions;
+using HospitalModuleUser.Infra.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
@@ -27,6 +28,8 @@ builder.Services.AddDbContext<DataContext>(opts =>
 });
 //identity
 builder.Services.AddIdentity<IdentityAccountUserAdapter, IdentityRole>().AddEntityFrameworkStores<DataContext>().AddDefaultTokenProviders();
+
+builder.Services.AddDomainServices();
 
 builder.Services.AddMediatR(cfg =>
 {
