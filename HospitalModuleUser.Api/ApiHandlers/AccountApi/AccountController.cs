@@ -1,6 +1,5 @@
 ﻿using HospitalModuleUser.Applica.Account.CommandHandler.Command;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HospitalModuleUser.Api.ApiHandlers.AccountApi
