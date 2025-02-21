@@ -10,6 +10,11 @@ namespace HospitalModuleUser.Applica.Account.CommandHandler.Handler
     public class AccountRegisterCommandHandler : IRequestHandler<AccountRegisterCommand, AccountUserDto>
     {
         private readonly AccountUserResgisterService _userResgisterService;
+
+        public AccountRegisterCommandHandler(AccountUserResgisterService userResgisterService)
+        {
+            _userResgisterService = userResgisterService;
+        }
         public async Task<AccountUserDto> Handle(AccountRegisterCommand request, CancellationToken cancellationToken)
         {
             var userDomain = new AccountUserEntity(request.fullName, request.email, request.email,

@@ -1,6 +1,6 @@
 ﻿
 
-using AppHospitalPractice.Domain.Exceptions.UserExceptions;
+using HospitalModuleUser.Domain.Exceptions.UserExceptions;
 using HospitalModuleUser.Domain.Common;
 using HospitalModuleUser.Domain.Entities.AccountUser.Model.Dto;
 using HospitalModuleUser.Domain.Entities.AccountUser.Model.Entity;

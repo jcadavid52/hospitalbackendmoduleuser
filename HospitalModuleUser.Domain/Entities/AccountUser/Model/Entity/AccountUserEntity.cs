@@ -1,5 +1,5 @@
 ﻿
-using AppHospitalPractice.Domain.Exceptions.UserExceptions;
+using HospitalModuleUser.Domain.Exceptions.UserExceptions;
 
 namespace HospitalModuleUser.Domain.Entities.AccountUser.Model.Entity
 {

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace HospitalModuleUser.Infra.Adapter.AccountUserAdapter
 {
+    [Repository]
     public class AccountUserRepository : IAccountUserRepository
     {
         private readonly UserManager<IdentityAccountUserAdapter> _userManager;

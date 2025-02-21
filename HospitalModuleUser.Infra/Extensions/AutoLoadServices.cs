@@ -1,9 +1,9 @@
 ﻿
-using AppHospitalPractice.Infrastructure.Adapters;
 using HospitalModuleUser.Domain.Common;
 using HospitalModuleUser.Infra.Adapter.AccountUserAdapter;
 using HospitalModuleUser.Infra.Port;
 using Microsoft.Extensions.DependencyInjection;
+using HospitalModuleUser.Infra.Adapter;
 
 namespace HospitalModuleUser.Infra.Extensions
 {
@@ -27,7 +27,7 @@ namespace HospitalModuleUser.Infra.Extensions
             var _repositories = AppDomain.CurrentDomain.GetAssemblies()
            .Where(assembly =>
            {
-               return assembly.FullName is null || assembly.FullName.Contains("Infrastructure", StringComparison.OrdinalIgnoreCase);
+               return assembly.FullName is null || assembly.FullName.Contains("Infra", StringComparison.OrdinalIgnoreCase);
            })
            .SelectMany(assembly => assembly.GetTypes())
            .Where(type => type.CustomAttributes.Any(attribute => attribute.AttributeType == typeof(RepositoryAttribute)));

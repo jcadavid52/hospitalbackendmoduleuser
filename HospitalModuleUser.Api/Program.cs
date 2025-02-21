@@ -5,9 +5,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SharpGrip.FluentValidation.AutoValidation.Mvc.Extensions;
 using HospitalModuleUser.Infra.Extensions;
+using FluentValidation;
+using HospitalModuleUser.Api.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
+
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 //fluent validation
 builder.Services.AddFluentValidationAutoValidation();
@@ -51,6 +55,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+app.UseMiddleware<AppExceptionHandlerMiddleware>();
 
 app.UseHttpsRedirection();
 

@@ -1,6 +1,5 @@
 ﻿
 
-using AppHospitalPractice.Domain.Exceptions;
 
 namespace HospitalModuleUser.Domain.Exceptions.UserExceptions
 {
