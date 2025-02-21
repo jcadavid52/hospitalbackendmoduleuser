@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HospitalModuleUser.Applica\HospitalModuleUser.Applica.csproj" />
     <ProjectReference Include="..\HospitalModuleUser.Infra\HospitalModuleUser.Infra.csproj" />
   </ItemGroup>
 
