@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace AppHospitalPractice.Domain.Exceptions.UserExceptions
+using AppHospitalPractice.Domain.Exceptions;
+
+namespace HospitalModuleUser.Domain.Exceptions.UserExceptions
 {
     public class RemoveRoleAccountUserException : CoreBusinessException
     {

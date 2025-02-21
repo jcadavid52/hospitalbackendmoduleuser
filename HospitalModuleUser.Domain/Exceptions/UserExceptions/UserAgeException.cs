@@ -1,6 +1,8 @@
 ﻿
 
-namespace AppHospitalPractice.Domain.Exceptions.UserExceptions
+using AppHospitalPractice.Domain.Exceptions;
+
+namespace HospitalModuleUser.Domain.Exceptions.UserExceptions
 {
     public class UserAgeException:CoreBusinessException
     {

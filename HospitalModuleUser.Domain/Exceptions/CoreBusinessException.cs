@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace AppHospitalPractice.Domain.Exceptions
+namespace HospitalModuleUser.Domain.Exceptions
 {
     public class CoreBusinessException : Exception
     {

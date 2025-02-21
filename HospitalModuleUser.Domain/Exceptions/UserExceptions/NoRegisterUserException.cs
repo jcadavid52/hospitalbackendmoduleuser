@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using AppHospitalPractice.Domain.Exceptions;
 
-namespace AppHospitalPractice.Domain.Exceptions.UserExceptions
+namespace HospitalModuleUser.Domain.Exceptions.UserExceptions
 {
     public class NoRegisterUserException : CoreBusinessException
     {
