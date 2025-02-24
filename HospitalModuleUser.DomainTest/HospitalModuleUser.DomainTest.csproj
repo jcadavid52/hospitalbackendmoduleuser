@@ -21,10 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="AccountUser\Service\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\HospitalModuleUser.Domain\HospitalModuleUser.Domain.csproj" />
   </ItemGroup>
 
