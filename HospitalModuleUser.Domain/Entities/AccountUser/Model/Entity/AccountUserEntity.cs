@@ -1,9 +1,10 @@
 ﻿
+using HospitalModuleUser.Domain.Common;
 using HospitalModuleUser.Domain.Exceptions.UserExceptions;
 
 namespace HospitalModuleUser.Domain.Entities.AccountUser.Model.Entity
 {
-    public class AccountUserEntity
+    public class AccountUserEntity:DomainEntity
     {
         const int minimalAge = 1;
 
