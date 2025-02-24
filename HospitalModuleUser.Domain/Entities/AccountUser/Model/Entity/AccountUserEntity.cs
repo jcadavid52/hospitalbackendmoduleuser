@@ -19,6 +19,12 @@ namespace HospitalModuleUser.Domain.Entities.AccountUser.Model.Entity
             if (age < minimalAge)
                 throw new UserAgeException($"La edad no puede ser menor a {minimalAge}");
 
+            ValidatorAccountUserEntity.ValidateFullName(fullName);
+            ValidatorAccountUserEntity.ValidateUserName(userName);
+            ValidatorAccountUserEntity.ValidateEmail(email);
+            ValidatorAccountUserEntity.ValidatePhoneNumber(phoneNumber);
+            ValidatorAccountUserEntity.ValidateAdress(address);
+
             this.FullName = fullName;
             this.UserName = userName;
             this.Email = email;
