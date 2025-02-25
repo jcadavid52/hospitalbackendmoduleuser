@@ -23,7 +23,7 @@ namespace HospitalModuleUser.Domain.Entities.AccountUser.Service
         {
             var resultRegister = await _accountUserRespository.AddAccountUser(user, password);
 
-            if (!resultRegister.success || resultRegister.User == null)
+            if (!resultRegister.success || resultRegister.User == null || resultRegister == null )
             {
                 foreach (var error in resultRegister.errors)
                 {

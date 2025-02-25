@@ -23,7 +23,7 @@ namespace HospitalModuleUser.Domain.Entities.AccountUser.Service
         {
             var userFound = await _accountUserRespository.GetAccountUserByUserName(userName);
 
-            if (userFound.User == null || !userFound.success)
+            if (userFound.User == null || !userFound.success || userFound == null)
             {
                 throw new NoAuthenticateException("Clave o usuario inválido");
             }

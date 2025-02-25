@@ -126,9 +126,8 @@ namespace HospitalModuleUser.DomainTest.AccountUser.Model.Entity
             return this;
         }
 
-        public AccountIdentityUserDataBuilder WithLockoutEnd(DateTimeOffset? lockoutEnd)
+        public AccountIdentityUserDataBuilder WithLockoutEnd()
         {
-            _lockoutEnd = lockoutEnd;
             return this;
         }
 
