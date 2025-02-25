@@ -4,6 +4,8 @@ using HospitalModuleUser.Infra.Adapter.AccountUserAdapter;
 using HospitalModuleUser.Infra.Port;
 using Microsoft.Extensions.DependencyInjection;
 using HospitalModuleUser.Infra.Adapter;
+using HospitalModuleUser.Domain.Entities.AccountUser.Port.InterfacesServices;
+using HospitalModuleUser.Infra.Adapter.TokenAdapter;
 
 namespace HospitalModuleUser.Infra.Extensions
 {
@@ -12,7 +14,7 @@ namespace HospitalModuleUser.Infra.Extensions
         public static IServiceCollection AddDomainServices(this IServiceCollection services)
         {
             //services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            //services.AddTransient(typeof(IJWTtokenService), typeof(TokenAdapterJWT));
+            services.AddTransient(typeof(IJWTtokenService), typeof(TokenAdapterJWT));
             services.AddTransient(typeof(IAccountUserAdapterFactory), typeof(AccountUserAdapterFactory));
             
 

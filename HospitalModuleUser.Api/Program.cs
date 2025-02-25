@@ -8,6 +8,12 @@ using HospitalModuleUser.Infra.Extensions;
 using FluentValidation;
 using HospitalModuleUser.Api.Middleware;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
@@ -40,6 +46,35 @@ builder.Services.AddMediatR(cfg =>
 {
     cfg.RegisterServicesFromAssembly(Assembly.Load("HospitalModuleUser.Applica"));
 });
+
+var key = builder.Configuration.GetValue<string>("ApiSettings:SecretKey");
+
+builder.Services.AddHttpContextAccessor();
+
+//autenticacion
+builder.Services.AddAuthentication(
+     auth =>
+     {
+         auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+         auth.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
+     }
+    ).AddJwtBearer(config =>
+    {
+        config.RequireHttpsMetadata = false;
+        config.SaveToken = true;
+        config.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(key)),
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ClockSkew = TimeSpan.Zero,
+            ValidateLifetime = true
+
+        };
+
+    });
 
 // Add services to the container.
 
@@ -125,6 +160,8 @@ app.UseMiddleware<AppExceptionHandlerMiddleware>();
 
 app.UseHttpsRedirection();
 
+app.UseCors("policyCors");
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

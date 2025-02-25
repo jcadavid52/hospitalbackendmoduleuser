@@ -9,5 +9,8 @@ namespace HospitalModuleUser.Domain.Entities.AccountUser.Port.InterfacesReposito
     {
         Task<ResponseRepositoryAccountRegisterDto> AddAccountUser(AccountUserEntity user, string password);
         Task<IEnumerable<string>> AssignRoleAccountUser(string nameRole, string idUser);
+        Task<bool> LoginAccountUser(IdentityUserAdpaterDto user, string password);
+        Task<IEnumerable<string>> GetAccountUserRoles(IdentityUserAdpaterDto user);
+        Task<IndetityFoundDto> GetAccountUserByUserName(string userName);
     }
 }

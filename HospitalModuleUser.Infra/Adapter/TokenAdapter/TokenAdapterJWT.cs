@@ -1,12 +1,13 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using HospitalModuleUser.Domain.Entities.AccountUser.Port.InterfacesServices;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
 namespace HospitalModuleUser.Infra.Adapter.TokenAdapter
 {
-    public class TokenAdapterJWT
+    public class TokenAdapterJWT: IJWTtokenService
     {
         private readonly IConfiguration _config;
         public TokenAdapterJWT(IConfiguration config)

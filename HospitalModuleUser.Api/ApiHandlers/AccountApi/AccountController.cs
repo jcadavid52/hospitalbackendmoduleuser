@@ -22,5 +22,13 @@ namespace HospitalModuleUser.Api.ApiHandlers.AccountApi
 
             return StatusCode(201, resultRegister);
         }
+
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login([FromBody] AccountLoginCommand command)
+        {
+            var resultAccess = await _mediator.Send(command);
+
+            return Ok(resultAccess);
+        }
     }
 }

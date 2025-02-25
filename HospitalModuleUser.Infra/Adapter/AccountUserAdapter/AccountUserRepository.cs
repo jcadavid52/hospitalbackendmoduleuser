@@ -60,5 +60,38 @@ namespace HospitalModuleUser.Infra.Adapter.AccountUserAdapter
 
             return await _userManager.GetRolesAsync(userFind);
         }
+
+        public async Task<IndetityFoundDto> GetAccountUserByUserName(string userName)
+        {
+            var identityUserAdapter = await _userManager.FindByNameAsync(userName);
+
+            if (identityUserAdapter == null)
+            {
+                return new IndetityFoundDto(null, false);
+            }
+
+
+            var userFound = _accountUserAdapterFactory.CreateMapIdentityUserDto(identityUserAdapter);
+
+
+
+            return new IndetityFoundDto(userFound, true);
+        }
+
+        public async Task<IEnumerable<string>> GetAccountUserRoles(IdentityUserAdpaterDto user)
+        {
+            var identityUserAdapter = _accountUserAdapterFactory.CreateMapIdentityUserAdapter(user);
+
+            return await _userManager.GetRolesAsync(identityUserAdapter);
+        }
+
+        public async Task<bool> LoginAccountUser(IdentityUserAdpaterDto user, string password)
+        {
+            var identityUserAdapter = _accountUserAdapterFactory.CreateMapIdentityUserAdapter(user);
+
+            var success = await _userManager.CheckPasswordAsync(identityUserAdapter, password);
+
+            return success;
+        }
     }
 }
