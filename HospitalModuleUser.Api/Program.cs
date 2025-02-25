@@ -49,6 +49,32 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var defaultRole = "Usuario";
+    var useInMemory = config.GetValue<bool>("UseInMemoryDatabase");
+    if (useInMemory)
+    {
+        if (!await roleManager.RoleExistsAsync(defaultRole))
+        {
+            var result = await roleManager.CreateAsync(new IdentityRole(defaultRole));
+
+            if (result.Succeeded)
+            {
+                Console.WriteLine($"El rol '{defaultRole}' fue creado exitosamente.");
+            }
+            else
+            {
+                Console.WriteLine($"Error creando el rol '{defaultRole}': {string.Join(", ", result.Errors.Select(e => e.Description))}");
+            }
+        }
+
+
+    }
+
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -66,3 +92,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+public partial class Program { }
