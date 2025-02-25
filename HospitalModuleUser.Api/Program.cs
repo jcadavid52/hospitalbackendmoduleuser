@@ -7,6 +7,7 @@ using SharpGrip.FluentValidation.AutoValidation.Mvc.Extensions;
 using HospitalModuleUser.Infra.Extensions;
 using FluentValidation;
 using HospitalModuleUser.Api.Middleware;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
@@ -45,7 +46,44 @@ builder.Services.AddMediatR(cfg =>
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+//JWT Bearer Token with swagger
+
+builder.Services.AddSwaggerGen(options =>
+{
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description =
+            "Autenticación JWT usando el esquema Bearer. \r\n\r\n " +
+            "Ingresa la palabra 'Bearer' seguido de un [espacio] y después su token en el campo de abajo.\r\n\r\n" +
+            "Ejemplo: \"Bearer tkljk125jhhk\"",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Scheme = "Bearer"
+    });
+
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement()
+        {
+            {
+                new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference
+                    {
+                        Type = ReferenceType.SecurityScheme,
+                        Id = "Bearer"
+                    },
+                    Scheme = "oauth2",
+                    Name = "Bearer",
+                    In = ParameterLocation.Header
+                },
+                new List<string>()
+            }
+        });
+});
+
+//cors
+builder.Services.AddCors(p => p.AddPolicy("policyCors", build =>
+ build.WithOrigins("*").AllowAnyMethod().AllowAnyHeader()
+));
 
 var app = builder.Build();
 
