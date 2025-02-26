@@ -12,5 +12,6 @@ namespace HospitalModuleUser.Domain.Entities.AccountUser.Port.InterfacesReposito
         Task<bool> LoginAccountUser(IdentityUserAdpaterDto user, string password);
         Task<IEnumerable<string>> GetAccountUserRoles(IdentityUserAdpaterDto user);
         Task<IndetityFoundDto> GetAccountUserByUserName(string userName);
+        Task<IndetityFoundDto> GetAccountUserById(string id);
     }
 }
