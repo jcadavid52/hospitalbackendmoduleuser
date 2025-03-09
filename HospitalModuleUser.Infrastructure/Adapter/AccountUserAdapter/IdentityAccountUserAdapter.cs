@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace HospitalModuleUser.Infra.Adapter.AccountUserAdapter
+namespace HospitalModuleUser.Infrastructure.Adapter.AccountUserAdapter
 {
     public class IdentityAccountUserAdapter: IdentityUser
     {

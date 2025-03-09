@@ -1,4 +1,4 @@
-﻿using HospitalModuleUser.Applica.Account.CommandHandler.Command;
+﻿using HospitalModuleUser.Application.Account.CommandHandler.Command;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

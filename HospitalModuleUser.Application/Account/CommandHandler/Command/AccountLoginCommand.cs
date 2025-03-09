@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using HospitalModuleUser.Domain.Entities.AccountUser.Model.Dto;
 using MediatR;
 
-namespace HospitalModuleUser.Applica.Account.CommandHandler.Command
+namespace HospitalModuleUser.Application.Account.CommandHandler.Command
 {
     public record AccountLoginCommand(string userName, string password) : IRequest<ResponseAccessDto>;
 

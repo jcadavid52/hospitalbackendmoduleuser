@@ -5,7 +5,7 @@ using HospitalModuleUser.Domain.Entities.AccountUser.Port.InterfacesServices;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-namespace HospitalModuleUser.Infra.Adapter.TokenAdapter
+namespace HospitalModuleUser.Infrastructure.Adapter.TokenAdapter
 {
     public class TokenAdapterJWT: IJWTtokenService
     {

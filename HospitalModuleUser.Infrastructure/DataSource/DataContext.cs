@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HospitalModuleUser.Infra.Adapter.AccountUserAdapter;
+﻿using HospitalModuleUser.Infrastructure.Adapter.AccountUserAdapter;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace HospitalModuleUser.Infra.DataSource
+namespace HospitalModuleUser.Infrastructure.DataSource
 {
     public class DataContext: IdentityDbContext
     {

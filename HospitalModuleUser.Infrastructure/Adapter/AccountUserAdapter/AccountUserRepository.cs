@@ -2,10 +2,10 @@
 using HospitalModuleUser.Domain.Entities.AccountUser.Model.Dto;
 using HospitalModuleUser.Domain.Entities.AccountUser.Model.Entity;
 using HospitalModuleUser.Domain.Entities.AccountUser.Port.InterfacesRepositories;
-using HospitalModuleUser.Infra.Port;
+using HospitalModuleUser.Infrastructure.Port;
 using Microsoft.AspNetCore.Identity;
 
-namespace HospitalModuleUser.Infra.Adapter.AccountUserAdapter
+namespace HospitalModuleUser.Infrastructure.Adapter.AccountUserAdapter
 {
     [Repository]
     public class AccountUserRepository : IAccountUserRepository

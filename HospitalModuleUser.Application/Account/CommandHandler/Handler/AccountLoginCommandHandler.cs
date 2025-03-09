@@ -1,10 +1,10 @@
 ﻿
-using HospitalModuleUser.Applica.Account.CommandHandler.Command;
+using HospitalModuleUser.Application.Account.CommandHandler.Command;
 using HospitalModuleUser.Domain.Entities.AccountUser.Model.Dto;
 using HospitalModuleUser.Domain.Entities.AccountUser.Service;
 using MediatR;
 
-namespace HospitalModuleUser.Applica.Account.CommandHandler.Handler
+namespace HospitalModuleUser.Application.Account.CommandHandler.Handler
 {
     public class AccountLoginCommandHandler : IRequestHandler<AccountLoginCommand, ResponseAccessDto>
     {

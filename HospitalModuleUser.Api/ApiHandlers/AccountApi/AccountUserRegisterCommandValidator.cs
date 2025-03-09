@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using HospitalModuleUser.Applica.Account.CommandHandler.Command;
+using HospitalModuleUser.Application.Account.CommandHandler.Command;
 
 namespace HospitalModuleUser.Api.ApiHandlers.AccountApi
 {

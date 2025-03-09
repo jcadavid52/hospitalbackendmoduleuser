@@ -11,8 +11,8 @@ namespace HospitalModuleUser.ArchitectureTests
         private static readonly Architecture Architecture = new ArchLoader().LoadAssemblies(
             System.Reflection.Assembly.Load("HospitalModuleUser.Api"),
             System.Reflection.Assembly.Load("HospitalModuleUser.Domain"),
-            System.Reflection.Assembly.Load("HospitalModuleUser.Infra"),
-            System.Reflection.Assembly.Load("HospitalModuleUser.Applica")
+            System.Reflection.Assembly.Load("HospitalModuleUser.Infrastructure"),
+            System.Reflection.Assembly.Load("HospitalModuleUser.Application")
         ).Build();
 
         private readonly IObjectProvider<IType> DomainLayer = Classes()
@@ -22,12 +22,12 @@ namespace HospitalModuleUser.ArchitectureTests
 
         private readonly IObjectProvider<IType> ApplicationLayer = Classes()
             .That()
-            .ResideInNamespace("HospitalModuleUser.Applica", true)
+            .ResideInNamespace("HospitalModuleUser.Application", true)
             .As("Application Layer");
 
         private readonly IObjectProvider<IType> InfrastructureLayer = Classes()
            .That()
-           .ResideInNamespace("HospitalModuleUser.Infra", true)
+           .ResideInNamespace("HospitalModuleUser.Infrastructure", true)
            .As("Infrastructure Layer");
 
         private readonly IObjectProvider<IType> ApiLayer = Classes()

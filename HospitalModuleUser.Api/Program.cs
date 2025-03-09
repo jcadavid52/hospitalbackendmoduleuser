@@ -1,6 +1,6 @@
 using System.Reflection;
-using HospitalModuleUser.Infra.Adapter.AccountUserAdapter;
-using HospitalModuleUser.Infra.DataSource;
+using HospitalModuleUser.Infrastructure.Adapter.AccountUserAdapter;
+using HospitalModuleUser.Infrastructure.DataSource;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SharpGrip.FluentValidation.AutoValidation.Mvc.Extensions;
@@ -44,7 +44,7 @@ builder.Services.AddDomainServices();
 
 builder.Services.AddMediatR(cfg =>
 {
-    cfg.RegisterServicesFromAssembly(Assembly.Load("HospitalModuleUser.Applica"));
+    cfg.RegisterServicesFromAssembly(Assembly.Load("HospitalModuleUser.Application"));
 });
 
 var key = builder.Configuration.GetValue<string>("ApiSettings:SecretKey");
@@ -121,6 +121,21 @@ builder.Services.AddCors(p => p.AddPolicy("policyCors", build =>
 ));
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<DataContext>();
+        context.Database.Migrate();
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "Ocurrió un error al migrar la base de datos.");
+    }
+}
 
 using (var scope = app.Services.CreateScope())
 {

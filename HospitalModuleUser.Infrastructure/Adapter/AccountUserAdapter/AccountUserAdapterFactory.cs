@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HospitalModuleUser.Domain.Entities.AccountUser.Model.Dto;
+﻿using HospitalModuleUser.Domain.Entities.AccountUser.Model.Dto;
 using HospitalModuleUser.Domain.Entities.AccountUser.Model.Entity;
-using HospitalModuleUser.Infra.Port;
+using HospitalModuleUser.Infrastructure.Port;
 
-namespace HospitalModuleUser.Infra.Adapter.AccountUserAdapter
+namespace HospitalModuleUser.Infrastructure.Adapter.AccountUserAdapter
 {
     public class AccountUserAdapterFactory : IAccountUserAdapterFactory
     {

@@ -1,4 +1,4 @@
-﻿using HospitalModuleUser.Infra.DataSource;
+﻿using HospitalModuleUser.Infrastructure.DataSource;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

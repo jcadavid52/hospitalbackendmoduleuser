@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HospitalModuleUser.Api\HospitalModuleUser.Api.csproj" />
-    <ProjectReference Include="..\HospitalModuleUser.Applica\HospitalModuleUser.Applica.csproj" />
     <ProjectReference Include="..\HospitalModuleUser.Infra\HospitalModuleUser.Infra.csproj" />
   </ItemGroup>
 

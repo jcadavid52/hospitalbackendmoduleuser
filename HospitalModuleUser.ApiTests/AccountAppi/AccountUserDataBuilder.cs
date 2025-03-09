@@ -1,6 +1,6 @@
 ﻿
 
-using HospitalModuleUser.Applica.Account.CommandHandler.Command;
+using HospitalModuleUser.Application.Account.CommandHandler.Command;
 using HospitalModuleUser.Domain.Entities.AccountUser.Model.Entity;
 
 namespace HospitalModuleUser.ApiTests.AccountAppi

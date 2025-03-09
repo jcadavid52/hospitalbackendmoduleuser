@@ -1,11 +1,11 @@
 ﻿
 using HospitalModuleUser.Domain.Common;
-using HospitalModuleUser.Infra.Adapter.AccountUserAdapter;
-using HospitalModuleUser.Infra.Port;
+using HospitalModuleUser.Infrastructure.Adapter.AccountUserAdapter;
+using HospitalModuleUser.Infrastructure.Port;
 using Microsoft.Extensions.DependencyInjection;
-using HospitalModuleUser.Infra.Adapter;
+using HospitalModuleUser.Infrastructure.Adapter;
 using HospitalModuleUser.Domain.Entities.AccountUser.Port.InterfacesServices;
-using HospitalModuleUser.Infra.Adapter.TokenAdapter;
+using HospitalModuleUser.Infrastructure.Adapter.TokenAdapter;
 
 namespace HospitalModuleUser.Infra.Extensions
 {

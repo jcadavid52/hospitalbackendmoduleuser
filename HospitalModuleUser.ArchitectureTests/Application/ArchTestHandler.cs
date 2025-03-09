@@ -8,13 +8,13 @@ namespace HospitalModuleUser.ArchitectureTests.Application
     public class ArchTestHandler
     {
         private static readonly Architecture Architecture = new ArchLoader().LoadAssemblies(
-           System.Reflection.Assembly.Load("HospitalModuleUser.Applica")
+           System.Reflection.Assembly.Load("HospitalModuleUser.Application")
        ).Build();
 
         [Fact]
         public void LosManejadoresDebenEstarEnCommandYQuery()
         {
-            var portNamespacePatternCommandHandler = "HospitalModuleUser.Applica.*.CommandHandler";
+            var portNamespacePatternCommandHandler = "HospitalModuleUser.Application.*.CommandHandler";
            
 
             Classes()
